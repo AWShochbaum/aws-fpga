@@ -22,9 +22,14 @@ module test_dram_dma();
    int timeout_count;
    int fail;
    logic [3:0] status;
-   int         len0 = 128;
+
+   //transfer1 - length less than 64 byte.
+   int         len0 = 17;
+   //transfer2 - length between 64 and 256 bytes.
    int         len1 = 128;
+   //transfer3 - length greater than 4k bytes.
    int         len2 = 6000;
+   //transfer4 - length between 256 and 512 bytes.
    int         len3 = 300;
    logic       ddr_ready;
    logic       rdata;
@@ -50,15 +55,19 @@ module test_dram_dma();
       tb.poke_ocl(.addr(64'h330), .data(0));
       tb.poke_ocl(.addr(64'h430), .data(0));
 
+      // AXI_MEMORY_MODEL is used to bypass DDR micron models and run with AXI memory models. More information can be found in the readme.md
+      
+`ifndef AXI_MEMORY_MODEL      
       // allow memory to initialize
       tb.nsec_delay(27000);
-
+`endif
+      
       $display("[%t] : Initializing buffers", $realtime);
 
       host_memory_buffer_address = 64'h0;
 
       //Queue data to be transfered to CL DDR
-      tb.que_buffer_to_cl(.chan(0), .src_addr(host_memory_buffer_address), .cl_addr(64'h0000_0000_0002), .len(len0) ); // move buffer to DDR 0
+      tb.que_buffer_to_cl(.chan(0), .src_addr(host_memory_buffer_address), .cl_addr(64'h0000_0000_1f00), .len(len0) ); // move buffer to DDR 0
 
       // Put test pattern in host memory
       for (int i = 0 ; i < len0 ; i++) begin
@@ -76,7 +85,7 @@ module test_dram_dma();
       end
 
       host_memory_buffer_address = 64'h0_0000_6000;
-      tb.que_buffer_to_cl(.chan(2), .src_addr(host_memory_buffer_address), .cl_addr(64'h0008_0000_0005), .len(len2) ); // move buffer to DDR 2
+      tb.que_buffer_to_cl(.chan(2), .src_addr(host_memory_buffer_address), .cl_addr(64'h0008_0000_0000), .len(len2) ); // move buffer to DDR 2
 
       for (int i = 0 ; i < len2 ; i++) begin
          tb.hm_put_byte(.addr(host_memory_buffer_address), .d(8'hCC));
@@ -119,13 +128,13 @@ module test_dram_dma();
 
       // read the data from cl and put it in the host memory
       host_memory_buffer_address = 64'h0_0001_0800;
-      tb.que_cl_to_buffer(.chan(0), .dst_addr(host_memory_buffer_address), .cl_addr(64'h0000_0000_0002), .len(len0) ); // move DDR0 to buffer
+      tb.que_cl_to_buffer(.chan(0), .dst_addr(host_memory_buffer_address), .cl_addr(64'h0000_0000_1f00), .len(len0) ); // move DDR0 to buffer
 
       host_memory_buffer_address = 64'h0_0002_1800;
       tb.que_cl_to_buffer(.chan(1), .dst_addr(host_memory_buffer_address), .cl_addr(64'h0004_0000_0000), .len(len1) ); // move DDR1 to buffer
 
       host_memory_buffer_address = 64'h0_0003_2800;
-      tb.que_cl_to_buffer(.chan(2), .dst_addr(host_memory_buffer_address), .cl_addr(64'h0008_0000_0005), .len(len2) ); // move DDR2 to buffer
+      tb.que_cl_to_buffer(.chan(2), .dst_addr(host_memory_buffer_address), .cl_addr(64'h0008_0000_0000), .len(len2) ); // move DDR2 to buffer
 
       host_memory_buffer_address = 64'h0_0004_3800;
       tb.que_cl_to_buffer(.chan(3), .dst_addr(host_memory_buffer_address), .cl_addr(64'h000C_0000_0000), .len(len3) ); // move DDR3 to buffer
@@ -229,7 +238,7 @@ module test_dram_dma();
 
       if (rdata !== 64'h0000_0001) begin
          $display("[%t] : *** ERROR *** DDR2 Data mismatch, addr:%0x read data is: %0x",
-                     $realtime, 64'h0008_0000_0005, rdata);
+                     $realtime, 64'h0008_0000_0000, rdata);
          error_count++;
       end
 

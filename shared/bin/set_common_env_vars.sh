@@ -15,6 +15,16 @@
 
 info_msg "Setting up environment variables"
 
+# Make sure that AWS_FPGA_REPO_DIR is set to the location of this script.
+if [[ ":$AWS_FPGA_REPO_DIR" == ':' ]]; then
+  debug_msg "AWS_FPGA_REPO_DIR not set so setting to $script_dir"
+  export AWS_FPGA_REPO_DIR=$script_dir
+elif [[ $AWS_FPGA_REPO_DIR != $script_dir ]]; then
+  info_msg "Changing AWS_FPGA_REPO_DIR from $AWS_FPGA_REPO_DIR to $script_dir"
+  export AWS_FPGA_REPO_DIR=$script_dir
+else
+  debug_msg "AWS_FPGA_REPO_DIR=$AWS_FPGA_REPO_DIR"
+fi
 
 # HDK
 # Clear environment variables
@@ -34,22 +44,22 @@ export HDK_SHELL_DIR=$(readlink -f $HDK_COMMON_DIR/shell_stable)
 # Set the common shell design dir
 export HDK_SHELL_DESIGN_DIR=$HDK_SHELL_DIR/design
 
-export PATH=$(echo $PATH | sed -e 's/\(^\|:\)[^:]\+\/hdk\/common\/scripts\(:\|$\)/:/g; s/^://; s/:$//')
-PATH=$AWS_FPGA_REPO_DIR/hdk/common/scripts:$PATH
-
 # SDK
 unset SDK_DIR
 
 export SDK_DIR=$AWS_FPGA_REPO_DIR/sdk
 
-
 # SDACCEL
 # Setup Location of SDACCEL_DIR
 export SDACCEL_DIR=$AWS_FPGA_REPO_DIR/SDAccel
-
 
 # PYTHONPATH
 # Update PYTHONPATH with libraries used for unit testing
 python_lib=$AWS_FPGA_REPO_DIR/shared/lib
 export PYTHONPATH=$(echo $PATH | sed -e 's/\(^\|:\)[^:]\+$python_lib\(:\|$\)/:/g; s/^://; s/:$//')
 PYTHONPATH=$python_lib:$PYTHONPATH
+
+# PATH Changes
+
+export PATH=$(echo $PATH | sed -e 's/\(^\|:\)[^:]\+\/shared\/bin\/scripts\(:\|$\)/:/g; s/^://; s/:$//')
+PATH=$AWS_FPGA_REPO_DIR/shared/bin/scripts:$PATH

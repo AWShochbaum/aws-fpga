@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Amazon FPGA Hardware Development Kit
 #
@@ -81,12 +81,14 @@ cp $ddr4_imports_dir/ddr4_db_delay_model.sv      $ddr4_rdimm_model_dir/
 cp $ddr4_imports_dir/ddr4_db_dly_dir.sv          $ddr4_rdimm_model_dir/
 cp $ddr4_imports_dir/ddr4_dimm.sv                $ddr4_rdimm_model_dir/
 cp $ddr4_imports_dir/ddr4_dir_detect.sv          $ddr4_rdimm_model_dir/
-#cp $ddr4_imports_dir/ddr4_rank.sv                $ddr4_rdimm_model_dir/
+cp $ddr4_imports_dir/ddr4_rank.sv                $ddr4_rdimm_model_dir/
 cp $ddr4_imports_dir/ddr4_rcd_model.sv           $ddr4_rdimm_model_dir/
 cp $ddr4_imports_dir/ddr4_rdimm_wrapper.sv       $ddr4_rdimm_model_dir/
 
-echo "patching ddr4_rank.sv file"
-sed -i -e 's/{1\x27b0, ddr4_model_qb_addr\[12:0\]}/ddr4_model_qb_addr\[13:0\]/g' $ddr4_rdimm_model_dir/ddr4_rank.sv
-sed -i -r 's/(^\s*)(\.CONFIGURED_DQ_BITS)/\1\.CONFIGURED_DENSITY\(_8G\),\2/g' $ddr4_rdimm_model_dir/ddr4_rank.sv
+
+echo "patching ddr4_rdimm_wrapper.sv file"
+sed -i s/_4G/_8G/g  $ddr4_rdimm_model_dir/ddr4_rdimm_wrapper.sv
+sed -i -e 's/\/\/\LRDIMM/\: LRDIMM/g' $ddr4_rdimm_model_dir/ddr4_rdimm_wrapper.sv
+sed -i -e 's/\/\/\!LRDIMM/\: NOT_LRDIMM/g' $ddr4_rdimm_model_dir/ddr4_rdimm_wrapper.sv
 
 rm -f $lockfile_filename

@@ -75,6 +75,268 @@ class TestSims(AwsFpgaTestBase):
 
         self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
 
+    def test_cl_dram_dma__dram_dma__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma__sv_fast_ecc_direct(self):
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_direct'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_ecc_direct__sv_fast_ecc_direct(self):
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_direct'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type) 
+
+    def test_cl_dram_dma__dram_dma_ecc_direct__sv_fast_ecc_rnd(self):
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_direct'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_ecc_rand__sv_fast_ecc_rnd_100(self):
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_rand'
+        test_type = 'sv_fast_ecc_rnd_100'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_ecc_rand__sv_fast_ecc_rnd_50(self):
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_rand'
+        test_type = 'sv_fast_ecc_rnd_50'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_ecc_rand__sv_fast_ecc_rnd_10(self):
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_rand'
+        test_type = 'sv_fast_ecc_rnd_10'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_ecc_rand__sv_fast_ecc_rnd_0(self):
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_rand'
+        test_type = 'sv_fast_ecc_rnd_0'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_ecc_direct'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_axi_mstr__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_axi_mstr'
+        test_type = 'sv'
+        
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_rnd__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_rnd'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_rnd__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_rnd'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_rnd__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_rnd'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_rnd__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_rnd'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_4k_crossing__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_4k_crossing'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_4k_crossing__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_4k_crossing'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_4k_crossing__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_4k_crossing'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_4k_crossing__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_4k_crossing'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_single_beat_4k__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_single_beat_4k'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_single_beat_4k__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_single_beat_4k'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_single_beat_4k__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_single_beat_4k'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_single_beat_4k__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_single_beat_4k'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_pcis_concurrent__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcis_concurrent'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_pcis_concurrent__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcis_concurrent'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_pcis_concurrent__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcis_concurrent'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+    def test_cl_dram_dma__dma_pcis_concurrent__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcis_concurrent'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_pcim_concurrent__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcim_concurrent'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_pcim_concurrent__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcim_concurrent'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+    def test_cl_dram_dma__dma_pcim_concurrent__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcim_concurrent'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_pcim_concurrent__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_pcim_concurrent'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_sda_concurrent__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_sda_concurrent'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_sda_concurrent__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_sda_concurrent'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dma_sda_concurrent__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_sda_concurrent'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+    def test_cl_dram_dma__dma_sda_concurrent__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dma_sda_concurrent'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
     def test_cl_dram_dma__ddr__sv(self):
 
         test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
@@ -107,11 +369,123 @@ class TestSims(AwsFpgaTestBase):
 
         self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
 
+    def test_cl_dram_dma__peek_poke__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_wc__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_wc'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_wc__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_wc'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_wc__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_wc'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_wc__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_wc'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_len__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_len'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_len__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_len'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_len__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_len'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_len__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_len'
+        test_type = 'sv_fast_ecc_rnd'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
     def test_cl_dram_dma__peek_poke_pcis_axsize__sv(self):
 
         test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
         test_name = 'test_peek_poke_pcis_axsize'
         test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_pcis_axsize__sv_fast(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_pcis_axsize'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_pcis_axsize__sv_fast_ecc_direct(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_pcis_axsize'
+        test_type = 'sv_fast_ecc_direct'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__peek_poke_pcis_axsize__sv_fast_ecc_rnd(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_peek_poke_pcis_axsize'
+        test_type = 'sv_fast_ecc_rnd'
 
         self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
 
@@ -123,12 +497,70 @@ class TestSims(AwsFpgaTestBase):
 
         self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
 
-    # cl_dram_dma c
-    @pytest.mark.skip(reason="Skip till the test is fixed. Fix is planned.")
-    def test_cl_dram_dma__dram_dma__c(self):
+    def test_cl_dram_dma__ddr_peek_bdr_walking_ones__sv(self):
 
         test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
-        test_name = 'test_dram_dma'
+        test_name = 'test_ddr_peek_bdr_walking_ones'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_dram_bdr_row_col_combo__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_ddr_peek_bdr_walking_ones'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_mem_model_bdr_wr__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_mem_model_bdr_wr'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_mem_model_bdr_rd__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_mem_model_bdr_rd'
+        test_type = 'sv_fast'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_ddr_peek_bdr_walking_ones__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_ddr_peek_bdr_walking_ones'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    # cl_uram_example c
+
+    def test_cl_uram_example__uram_example__c(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_uram_example/verif/scripts'
+        test_name = 'test_uram_example'
+        test_type = 'c'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)    
+    
+    # cl_dram_dma c
+
+    def test_cl_dram_dma__sda__sv(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_sda'
+        test_type = 'sv'
+
+        self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)
+
+    def test_cl_dram_dma__dram_dma_hwsw_cosim__c(self):
+
+        test_dir = self.WORKSPACE + '/hdk/cl/examples/cl_dram_dma/verif/scripts'
+        test_name = 'test_dram_dma_hwsw_cosim'
         test_type = 'c'
 
         self.run_sim(test_dir=test_dir, test_name=test_name, test_type=test_type)

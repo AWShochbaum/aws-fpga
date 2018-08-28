@@ -28,8 +28,6 @@ script_name=$(basename $full_script)
 script_dir=$(dirname $full_script)
 current_dir=$(pwd)
 
-source $script_dir/shared/bin/message_functions.sh
-
 debug=0
 
 # This function checks if an environment module exists
@@ -82,7 +80,7 @@ for (( i = 0; i < ${#args[@]}; i++ )); do
   esac
 done
 
-source $script_dir/shared/bin/set_AWS_FPGA_REPO_DIR.sh
+source $script_dir/shared/bin/set_common_functions.sh
 source $script_dir/shared/bin/set_common_env_vars.sh
 
 hdk_shell_version=$(readlink $HDK_COMMON_DIR/shell_stable)
@@ -90,11 +88,14 @@ hdk_shell_version=$(readlink $HDK_COMMON_DIR/shell_stable)
 debug_msg "Checking for Vivado install:"
 
 # before going too far make sure Vivado is available
-if ! vivado -version > /dev/null 2>&1; then
+if ! is_vivado_available; then
     err_msg "Please install/enable Vivado."
     err_msg "  If you are using the FPGA Developer AMI then please request support."
     return 1
 fi
+
+# Install any patches as required
+setup_patches
 
 #Searching for Vivado version and comparing it with the list of supported versions
 
@@ -102,15 +103,19 @@ export VIVADO_VER=`vivado -version | grep Vivado | head -1`
 
 info_msg "Using $VIVADO_VER"
 
-if grep -Fxq "$VIVADO_VER" $AWS_FPGA_REPO_DIR/hdk/supported_vivado_versions.txt
+if grep -Fxq "$VIVADO_VER" $AWS_FPGA_REPO_DIR/supported_vivado_versions.txt
 then
     debug_msg "$VIVADO_VER is supported by this HDK release."
 else
     err_msg "$VIVADO_VER is not supported by this HDK release."
     err_msg "Supported versions are:"
-    cat $AWS_FPGA_REPO_DIR/hdk/supported_vivado_versions.txt
+    cat $AWS_FPGA_REPO_DIR/supported_vivado_versions.txt
     return 1
 fi
+
+VIVADO_TOOL_VERSION=`vivado -version | grep Vivado | head -1 | sed 's:Vivado *::' | sed 's: .*$::'`
+export VIVADO_TOOL_VERSION=${VIVADO_TOOL_VERSION:0:7}
+echo "VIVADO_TOOL_VERSION is $VIVADO_TOOL_VERSION"
 
 debug_msg "Vivado check succeeded"
 
@@ -238,4 +243,5 @@ else
 fi
 
 cd $current_dir
+
 info_msg "AWS HDK setup PASSED.";
